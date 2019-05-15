@@ -12,7 +12,7 @@ const name6 = 'Jane Smith';
 let age6 = 23;
 name6 = 'Jane Miller';
 console.log(name6);
-*/
+
 
 // ES5
 function driversLicense(passedTest) {
@@ -52,3 +52,70 @@ for (var i = 0; i < 5; i++) {
 }
 
 console.log(i);
+
+
+// Lecture: Blocks and IIFEs
+
+// ES6
+{
+    const a = 1;
+    let b = 2;
+    var c = 3;
+}
+
+// console.log(a + b);
+console.log(c);
+
+// ES5
+(function() {
+    var c = 3;
+})();
+
+
+// Lecture: strings
+
+let firstName = 'John';
+let lastName = 'Smith';
+const yearOfBirth = 1990
+
+function calcAge(year) {
+    return 2016 - year;
+}
+
+// ES5
+console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today he is ' + calcAge(yearOfBirth) + ' years old.');
+
+// ES6
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today he is ${calcAge(yearOfBirth)} years old.`)
+
+const n = `${firstName} ${lastName}`;
+console.log(n.startsWith('j'));
+console.log(n.endsWith('th'));
+console.log(n.includes(' '));
+console.log(n.includes('oh'));
+console.log(`${firstname}`.repeat(5));
+*/
+
+// Lecture: Arrow Functions
+
+const years = [1990, 1965, 1982, 1937];
+
+// ES5
+var ages5 = years.map(function(el) {
+    return 2016 - el;
+});
+console.log(ages5);
+
+// ES6
+let ages6 = years.map(el => 2016 - el);
+console.log(ages6);
+
+ages6 = years.map((el, index) => `Age element ${index + 1}: ${2016 - el}.`);
+console.log(ages6);
+
+ages6 = years.map((el, index) => {
+    const now = new Date().getFullYear();
+    const age = now - el;
+    return `Age element ${index + 1}: ${age}.`
+});
+console.log(ages6);
